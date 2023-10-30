@@ -3,7 +3,7 @@
 # Which version of Node image to use depends on project dependencies 
 # This is needed to build and compile our code 
 # while generating the docker image
-FROM node:12.14-alpine AS build
+FROM node:12.14-alpine
 # Create a Virtual directory inside the docker image
 WORKDIR /dist/src/app
 # Copy files to virtual directory
@@ -18,7 +18,7 @@ RUN npm run build --prod
 
 ### STAGE 2:RUN ###
 # Defining nginx image to be used
-FROM nginx:latest AS ngi
+FROM nginx:latest
 # Copying compiled code and nginx config to different folder
 # NOTE: This path may change according to your project's output folder 
 COPY --from=build /dist/src/app/dist/my-docker-angular-app /usr/share/nginx/html
