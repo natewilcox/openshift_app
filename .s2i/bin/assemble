@@ -8,4 +8,4 @@ source /usr/libexec/s2i/assemble
 # You can write S2I scripts in any programming language, as long as the 
 # scripts are executable inside the builder image.
 
-echo "Hello from override"
+echo "Hello from override!"
